@@ -1,0 +1,45 @@
+# This is comment and will not been executed
+# YAML file can be .yml or .yaml
+# YAML Ain't Markup Language
+# After you create a YAML file don't forget to vaidate it through validator YAML online
+
+person: #this is object person
+  name: "mike" # String variables
+  occupation: 'programmer' # String variables with single quotes
+  age: 12 # int
+  gpa: 3.5 # Floating value
+  fav_num: 1e+10 # Expanantional value
+  male: true # Boolean variable
+  birthday: 1994-02-06 14:33:22 # date using ISO 8601
+  flaws: null # null value
+  hobbies: # this is list value
+    - hikings
+    - movies
+    - riding bike
+  movies: ["Dark knight", "Good Will Hunting"] # this is another way to create list value
+  friends: # this is list object values
+    - name: "Steph" # first way declaring object in the list
+      age: 22
+    - {name: "Adam", age: 22} # second way declaring object in the list
+    - 
+      name: "joe" # third way declaring object in the list by new line space in the top of varible obj like this
+      age: 23
+  description: > # using > let the yaml to read the information or value as a single line even though the value is written in the multiline format
+    null aku padamu dan jika ia
+    adalah masa depanku maka dekatkan lah aku padanya
+    dan jika dia bukan masa depanku
+    maka hilangkanlah dia dalam pikiranku
+    edisi galau
+  signature: |  # using | let the yaml to preserve the value format in multi line
+    Mike
+    Yaml Academy
+    email - yamlacademy@gmail.com
+  angker: &angker1 "angker1"  # to refere any value with angker use "& followed by name" like this
+  id_angker: *angker1 # to access the angker value use "* followed by named"
+  angker_ob: &angkerobj # to refer the obj with angker use "& followed by name and put in the parent line obj"
+    var1: value1
+  foo_angker:
+    <<: *angkerobj # use <<: followed by &nameAngker to refer the angker obj, so it will be var1: value1
+    var2: value2
+  force_int: !!float 30 # it will force the 30 to be float that is 30.0
+  force_str: !!str 3.9 # it will force the 3.9 to be string that is "3.9"
